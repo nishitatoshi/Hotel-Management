@@ -3,6 +3,7 @@ package com.techment.hotelManagement.api.entity;
 import java.sql.Blob;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,6 +27,20 @@ public class RoomDetails {
 	public RoomDetails() {
 		super();
 	}
+
+	
+	public RoomDetails(int room_id, String room_no, String room_type, double rate_per_day, Boolean isavailable,
+			Blob photo, Hotel hotel) {
+		super();
+		this.room_id = room_id;
+		this.room_no = room_no;
+		this.room_type = room_type;
+		this.rate_per_day = rate_per_day;
+		this.isavailable = isavailable;
+		this.photo = photo;
+		this.hotel = hotel;
+	}
+
 
 	public int getRoom_id() {
 		return room_id;
@@ -82,7 +97,7 @@ public class RoomDetails {
 	}
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 	

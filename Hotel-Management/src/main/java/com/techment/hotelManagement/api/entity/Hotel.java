@@ -27,6 +27,24 @@ public class Hotel {
 		super();
 	}
 
+	
+	public Hotel(int hotel_id, String hotel_city, String hotel_name, String hotel_address, String hotel_description,
+			double avg_rate_per_day, String hotel_email, String hotel_phone1, String hotel_phone2,
+			String hotel_website) {
+		super();
+		this.hotel_id = hotel_id;
+		this.hotel_city = hotel_city;
+		this.hotel_name = hotel_name;
+		this.hotel_address = hotel_address;
+		this.hotel_description = hotel_description;
+		this.avg_rate_per_day = avg_rate_per_day;
+		this.hotel_email = hotel_email;
+		this.hotel_phone1 = hotel_phone1;
+		this.hotel_phone2 = hotel_phone2;
+		this.hotel_website = hotel_website;
+	}
+
+
 	public int getHotel_id() {
 		return hotel_id;
 	}

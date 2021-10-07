@@ -2,11 +2,14 @@ package com.techment.hotelManagement.api.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.techment.hotelManagement.api.dao.IUserDao;
 import com.techment.hotelManagement.api.entity.User;
 
+@Service
 public class UserImplService implements IUserService{
 	
 	@Autowired

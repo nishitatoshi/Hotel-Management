@@ -43,7 +43,7 @@ public class UserController {
 	@PutMapping(value = "/updateUserById/{id}")
 	public ResponseEntity<String> updateEmployeeById(@PathVariable int id,@RequestBody User user)
 	{
-		String users = userService.updateUserById(user, id);
+		//String users = userService.updateUserById(user, id);
 		user.setUser_id(id);
 		userService.addUsers(user);
 		

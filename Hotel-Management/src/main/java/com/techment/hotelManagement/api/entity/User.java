@@ -25,6 +25,20 @@ public class User {
 	public User() {
 		super();
 	}
+	
+
+	public User(int user_id, String user_name, String user_email, String user_password, String user_role,
+			String userMobile, String userAddress) {
+		super();
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.user_email = user_email;
+		this.user_password = user_password;
+		this.user_role = user_role;
+		this.userMobile = userMobile;
+		this.userAddress = userAddress;
+	}
+
 
 	public int getUser_id() {
 		return user_id;

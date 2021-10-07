@@ -1,7 +1,8 @@
 package com.techment.hotelManagement.api.entity;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,13 +23,8 @@ public class Payments {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
 	int payment_id;
-	
-	@Column
 	int booking_id;
-	
-	@Column
 	int transaction_id;
 	
 	
@@ -102,7 +98,7 @@ public class Payments {
 	@OneToOne(mappedBy = "transaction_id")
 	private Transactions transactions;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name="booking_id")
 	private BookingDetails bookingDetails;
 	

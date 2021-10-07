@@ -1,9 +1,11 @@
 package com.techment.hotelManagement.api.entity;
 
 import java.util.Date;
+import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,23 @@ public class BookingDetails {
 	public BookingDetails() {
 		super();
 	}
+
+	
+	public BookingDetails(int booking_id, Date booked_from, Date booked_to, int no_of_adults, int no_of_children,
+			double amount, User user, Hotel hotel, List<Payments> payments, RoomDetails roomDetails) {
+		super();
+		this.booking_id = booking_id;
+		this.booked_from = booked_from;
+		this.booked_to = booked_to;
+		this.no_of_adults = no_of_adults;
+		this.no_of_children = no_of_children;
+		this.amount = amount;
+		this.user = user;
+		this.hotel = hotel;
+		this.payments = payments;
+		this.roomDetails = roomDetails;
+	}
+
 
 	public int getBooking_id() {
 		return booking_id;
@@ -89,10 +108,11 @@ public class BookingDetails {
 	@OneToOne(mappedBy = "hotel_id")
 	private Hotel hotel;
 	
-	@OneToMany(mappedBy = "payment_id")
-	private Payments payments;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Payments> payments;
 	
-	@OneToMany(mappedBy = "room_id")
+	@OneToMany(mappedBy = "room_id", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
 	private RoomDetails roomDetails;
 	
 	
