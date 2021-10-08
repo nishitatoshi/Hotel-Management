@@ -36,5 +36,6 @@ public class RoomDetails {
 //	@ManyToOne(targetEntity = BookingDetails.class, cascade = CascadeType.ALL)
 //	@JoinColumn(name = "room_id", referencedColumnName = "room_id")
 //	private List<BookingDetails> bookingList;
+	//nwnenu2eveu
 	
 }
